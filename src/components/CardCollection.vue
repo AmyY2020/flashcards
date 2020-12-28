@@ -41,7 +41,16 @@
     </v-row>
   
     <v-container class="collect-actions d-flex justify-space-around">
-      <v-btn depressed dark color="#344955">Read</v-btn>
+      <v-dialog
+        v-model="dialog"
+        fullscreen
+        hide-overlay
+      >
+        <template v-slot:activator="{ on }">
+          <v-btn depressed dark color="#344955" v-on="on">Read</v-btn>
+        </template>
+        <NewCard />
+      </v-dialog>
       <v-btn depressed dark color="#344955">Listen</v-btn>
       <v-btn depressed dark color="#344955">Test</v-btn>
     </v-container>
@@ -52,11 +61,13 @@
 
 <script>
   import Card from './Card';
+  import NewCard from './NewCard';
 
   export default {
     name: 'CardCollection',
     components: {
       Card,
+      NewCard
     },
     data: () => ({
     }),
