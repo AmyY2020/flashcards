@@ -1,7 +1,7 @@
 <template>
   <v-card>
     <v-row class="d-flex justify-end">
-        <v-btn class="mr-6 mt-5" icon>
+        <v-btn class="mr-6 mt-5" icon @click="$emit('close-dialog')">
            <v-icon class="material-icons">clear</v-icon>
         </v-btn>
     </v-row>
@@ -71,7 +71,7 @@
                   <v-btn class="mb-8"
                     color="#F4AA33"
                     dark
-                    @click="dialog = false"
+                    @click="createCard"
                   >
                     Create
                   </v-btn>
@@ -80,7 +80,7 @@
               <!-- </v-card-actions> -->
               </v-row>
             </v-container>
-            
+
           </v-card-text>
         </v-card>
 </template>
@@ -98,6 +98,12 @@
         'History Story',
       ],
     }),
+    methods: {
+      createCard() {
+        this.$router.push('read-cards');
+        this.$emit('close-dialog');
+      }
+    }
   }
 </script>
 

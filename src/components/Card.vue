@@ -31,7 +31,7 @@
     props: {
       deckName: String,
       word: String,
-      height: Number,
+      height: String,
       selected: Boolean,
       smallFontSize: Boolean
     },

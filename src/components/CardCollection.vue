@@ -39,7 +39,7 @@
         <Card deckName=" " word="Deliberate" height="160" smallFontSize/>
       </v-col>
     </v-row>
-  
+
     <v-container class="collect-actions d-flex justify-space-around">
       <v-dialog
         v-model="dialog"
@@ -49,7 +49,7 @@
         <template v-slot:activator="{ on }">
           <v-btn depressed dark color="#344955" v-on="on">Read</v-btn>
         </template>
-        <NewCard />
+        <NewCard @close-dialog="dialog = false"/>
       </v-dialog>
       <v-btn depressed dark color="#344955">Listen</v-btn>
       <v-btn depressed dark color="#344955">Test</v-btn>
@@ -70,6 +70,7 @@
       NewCard
     },
     data: () => ({
+      dialog: false
     }),
   }
 </script>
