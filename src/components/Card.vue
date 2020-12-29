@@ -1,6 +1,6 @@
 <template>
   <v-card
-    class="mx-auto d-flex flex-column"
+    class="mx-auto d-flex flex-column flex-grow-1"
     max-width="344"
     :height="height || 200"
     outlined
@@ -31,7 +31,7 @@
     props: {
       deckName: String,
       word: String,
-      height: String,
+      height: Number,
       selected: Boolean,
       smallFontSize: Boolean
     },

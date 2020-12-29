@@ -100,7 +100,7 @@
     }),
     methods: {
       createCard() {
-        this.$router.push('read-cards');
+        this.$router.push('cards');
         this.$emit('close-dialog');
       }
     }

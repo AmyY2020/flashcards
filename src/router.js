@@ -12,8 +12,8 @@ const routes = [
     component: Home
   },
   {
-    path: '/read-cards',
-    name: 'read-cards',
+    path: '/cards',
+    name: 'cards',
     component: CardDisplay
   }
 ]

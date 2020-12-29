@@ -1,46 +1,49 @@
 <template>
   <v-container>
     <v-row class="text-center d-flex justify-between">
-        <v-col cols="2">
-          <v-btn icon>
+        <v-col cols="2" v-if="selectView">
+          <v-btn icon @click="clickBack">
            <v-icon class="material-icons">keyboard_arrow_left</v-icon>
           </v-btn>
         </v-col>
-        <v-col cols="10" class="d-flex justify-end">
-          <v-btn text>Select</v-btn>
+        <v-col cols="10" class="d-flex justify-end" v-if="selectView">
+          <v-btn text disabled>Select</v-btn>
           <v-btn class="pa-1 mr-3" outlined color="#26A599">All</v-btn>
           <v-btn class="pa-1 mr-3" outlined color="#26A599">Local</v-btn>
           <v-btn class="pa-1" outlined color="#26A599">Cancel</v-btn>
         </v-col>
+        <v-col cols="12" class="d-flex justify-end" v-else>
+          <v-btn text @click="clickSelect">Select</v-btn>
+        </v-col>
     </v-row>
-    <v-row dense>
+    <v-row dense class="mb-14">
       <v-col cols="6" class="d-flex">
-        <v-checkbox class="align-center"></v-checkbox>
-        <Card deckName="History Story" word="History" height="160" smallFontSize selected/>
+        <v-checkbox class="align-center" v-if="selectView"></v-checkbox>
+        <Card deckName="History Story" word="History" :height="selectView ? 160 : 200" :smallFontSize="selectView" selected/>
       </v-col>
       <v-col cols="6" class="d-flex">
-        <v-checkbox class="align-center"></v-checkbox>
-        <Card deckName="Art Business" word="Art" height="160" smallFontSize/>
+        <v-checkbox class="align-center" v-if="selectView"></v-checkbox>
+        <Card deckName="Art Business" word="Art" :height="selectView ? 160 : 200" :smallFontSize="selectView"/>
       </v-col>
        <v-col cols="6" class="d-flex">
-         <v-checkbox class="align-center"></v-checkbox>
-        <Card deckName=" " word="Deliberate" height="160" smallFontSize/>
+         <v-checkbox class="align-center" v-if="selectView"></v-checkbox>
+        <Card deckName=" " word="Deliberate" :height="selectView ? 160 : 200" :smallFontSize="selectView"/>
       </v-col>
        <v-col cols="6" class="d-flex">
-         <v-checkbox class="align-center"></v-checkbox>
-        <Card deckName=" " word="Deliberate" height="160" smallFontSize/>
+         <v-checkbox class="align-center" v-if="selectView"></v-checkbox>
+        <Card deckName=" " word="Deliberate" :height="selectView ? 160 : 200" :smallFontSize="selectView"/>
       </v-col>
        <v-col cols="6" class="d-flex">
-         <v-checkbox class="align-center"></v-checkbox>
-        <Card deckName=" " word="Deliberate" height="160" smallFontSize/>
+         <v-checkbox class="align-center" v-if="selectView"></v-checkbox>
+        <Card deckName=" " word="Deliberate" :height="selectView ? 160 : 200" :smallFontSize="selectView"/>
       </v-col>
        <v-col cols="6" class="d-flex">
-         <v-checkbox class="align-center"></v-checkbox>
-        <Card deckName=" " word="Deliberate" height="160" smallFontSize/>
+         <v-checkbox class="align-center" v-if="selectView"></v-checkbox>
+        <Card deckName=" " word="Deliberate" :height="selectView ? 160 : 200" :smallFontSize="selectView"/>
       </v-col>
     </v-row>
 
-    <v-container class="collect-actions d-flex justify-space-around">
+    <v-container class="collect-actions d-flex justify-space-around" v-if="selectView">
       <v-dialog
         v-model="dialog"
         fullscreen
@@ -70,8 +73,19 @@
       NewCard
     },
     data: () => ({
-      dialog: false
+      dialog: false,
+      selectView: false,
     }),
+    methods: {
+      clickSelect() {
+        this.selectView = true;
+        this.$emit('select-view', true);
+      },
+      clickBack() {
+        this.selectView = false;
+        this.$emit('select-view', false);
+      }
+    }
   }
 </script>
 
