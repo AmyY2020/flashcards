@@ -8,15 +8,15 @@
   >
     <v-card-text class="d-flex flex-column flex-grow-1 pb-0">
       <div>{{deckName}}</div>
-      <div class="text--primary d-flex justify-center align-center flex-grow-1" :class="[smallFontSize ? 'text-h6' : 'text-h5']">
+      <div class="text--primary d-flex justify-center align-center flex-grow-1" :class="[smallFontSize ? 'cardtext-small' : 'cardtext-large']">
         {{word}}
       </div>
       <!-- <div> -->
          <v-container class="py-0">
           <v-row class="text-center">
            <v-col cols="12" class="d-flex justify-end ml-5 pa-0">
-            <v-icon class="material-icons pa-2">share</v-icon>
-            <v-icon class="material-icons pa-2">cloud_download</v-icon>
+            <v-icon class="material-icons" :class="[smallFontSize ? 'icon-small' : 'icon-large']">share</v-icon>
+            <v-icon class="material-icons pa-2" :class="[smallFontSize ? 'icon-small' : 'icon-large']">cloud_download</v-icon>
           </v-col>
           </v-row>
         </v-container>
@@ -48,5 +48,21 @@
   left: '50%';
   transform: 'translateX(-50%)';
   z-index: 100;
+}
+.cardtext-large {
+  font-size: 20px;
+  
+}
+.cardtext-small {
+  font-size: 16px;
+  
+}
+.icon-large {
+  font-size: 14px;
+  color: green;
+}
+.icon-small {
+  font-size: 12px;
+  color: green;
 }
 </style>

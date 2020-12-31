@@ -7,7 +7,6 @@
           </v-btn>
         </v-col>
         <v-col cols="10" class="d-flex justify-end" v-if="selectView">
-          <v-btn text disabled>Select</v-btn>
           <v-btn class="pa-1 mr-3" outlined color="#26A599">All</v-btn>
           <v-btn class="pa-1 mr-3" outlined color="#26A599">Local</v-btn>
           <v-btn class="pa-1" outlined color="#26A599">Cancel</v-btn>

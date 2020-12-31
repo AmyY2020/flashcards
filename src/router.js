@@ -15,7 +15,7 @@ const routes = [
     path: '/cards',
     name: 'cards',
     component: CardDisplay
-  }
+  },
 ]
 
 export default new VueRouter({
