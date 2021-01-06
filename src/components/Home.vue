@@ -1,11 +1,13 @@
 <template>
-  <div>
+  <div class="overflow-hidden">
     <v-app-bar
       app
       color="#344955"
       dark
     >
-      <v-app-bar-nav-icon></v-app-bar-nav-icon>
+      <v-btn icon @click.stop="drawer = !drawer">
+        <v-app-bar-nav-icon></v-app-bar-nav-icon>
+      </v-btn>
       <v-toolbar-title>Cards</v-toolbar-title>
 
       <v-spacer></v-spacer>
@@ -37,7 +39,7 @@
             color="#F4AA33"
             class="v-btn--example"
             v-on="on"
-            v-if="createButtonHidden"
+            v-show="createButtonHidden && !drawer"
           >
             <v-icon>mdi-plus</v-icon>
           </v-btn>
@@ -61,6 +63,62 @@
         <v-icon class="material-icons-outlined">people_alt</v-icon>
       </v-btn>
     </v-bottom-navigation>
+
+    <v-navigation-drawer
+      v-model="drawer"
+      absolute
+      temporary
+      dark
+      hide-overlay
+      color="rgb(52, 73, 85, 0.9)"
+    >
+      <v-list-item>
+        <v-list-item-avatar>
+          <v-img src="https://randomuser.me/api/portraits/men/78.jpg"></v-img>
+        </v-list-item-avatar>
+
+        <v-list-item-content>
+          <v-list-item-title>John Leider</v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
+
+      <v-divider></v-divider>
+
+      <v-list>
+        <v-list-item link>
+          <v-list-item-icon>
+            <v-icon>mdi-cog-outline</v-icon>
+          </v-list-item-icon>
+
+          <v-list-item-content>
+            
+            <v-list-item-title>Setting</v-list-item-title>
+            <!-- <v-divider class="mt-3"></v-divider> -->
+          </v-list-item-content>
+        </v-list-item>
+
+        <v-list-item link>
+          <v-list-item-icon>
+            <v-icon>mdi-forum</v-icon>
+          </v-list-item-icon>
+
+          <v-list-item-content>
+            
+            <v-list-item-title>About</v-list-item-title>
+            <!-- <v-divider class="mt-3"></v-divider> -->
+          </v-list-item-content>
+          </v-list-item> 
+      </v-list>
+        <div>
+          
+          <div class="pa-2 mt-10">
+            
+            <v-btn text block x-large>
+              Logout
+            </v-btn>
+          </div>
+        </div>
+    </v-navigation-drawer>
   </div>
 </template>
 
@@ -80,6 +138,7 @@ export default {
     bottomNav: 'recent',
     createButtonHidden: true,
     dialog: false,
+    drawer: false,
   }),
   methods: {
     selectView(event) {

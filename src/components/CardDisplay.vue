@@ -26,7 +26,7 @@
           <v-list-item
             v-for="(item, index) in items"
             :key="index"
-            
+            @click="clickDeckItem(item.router)"
           >
           <v-list-item-icon class="mr-4">
               <v-icon color="#344955" v-text="item.icon"></v-icon>
@@ -71,7 +71,7 @@
               <div class="backcard-content d-flex justify-start align-center flex-grow-1 px-6 pt-8 mt-6 scrollbox">
                   I took a course on art in the 20th century
                   the artsThe arts are vitally important to our city.
-                  x
+                  
                   
               </div>
             </v-card>
@@ -128,7 +128,7 @@
       sheet: false,
       items: [
       { title: 'Share', icon: 'share' },
-      { title: 'Listen', icon: 'play_circle'},
+      { title: 'Listen', icon: 'play_circle', router: 'player'},
       { title: 'Test', icon: 'assignment'},
       ],
       flip: false,
@@ -137,6 +137,9 @@
     methods: {
       clickCard() {
         this.flip = !this.flip;
+      },
+      clickDeckItem(router) {
+        this.$router.push(router);
       }
     }
   }
