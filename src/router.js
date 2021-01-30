@@ -3,7 +3,9 @@ import VueRouter from 'vue-router'
 import Home from './components/Home.vue'
 import CardDisplay from './components/CardDisplay'
 import Player from './components/Player'
+import Quiz from './components/Quiz'
 import Login from './components/Login'
+import Signup from './components/Signup'
 
 Vue.use(VueRouter);
 
@@ -24,9 +26,19 @@ const routes = [
     component: Player
   },
   {
+    path: '/quiz',
+    name: 'quiz',
+    component: Quiz
+  },
+  {
     path: '/login',
     name: 'login',
     component: Login
+  },
+  {
+    path: '/signup',
+    name: 'signup',
+    component: Signup
   },
 ]
 

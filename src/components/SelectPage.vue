@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-row class="text-center">
-      <v-col cols="12" class="d-flex justify-end">
+      <v-col cols="12" class="d-flex justify-">
 
         <v-btn text>Select</v-btn>
 

@@ -8,55 +8,26 @@
     :color="selected ? '#E3F2FD' : ''"
   >
     <v-card-text class="d-flex flex-column flex-grow-1 pb-0 paper-content">
-      <div class="d-flex justify-space-between">
-          <div class="ml-2">
-            {{deckName}}
-          </div>
-          <div>
-            12
-          </div>
+      
+      <div>
+        {{deckName}}
       </div>
       
-     <div class="text--primary d-flex justify-center align-center flex-grow-1" :class="[smallFontSize ? 'cardtext-small' : 'cardtext-large']">
+      <div class="text--primary d-flex justify-center align-center flex-grow-1" :class="[smallFontSize ? 'cardtext-small' : 'cardtext-large']">
         <div class="d-flex align-center flex-column">
           {{word}}
-          
+          <v-checkbox class="mt-0" v-if="selectView" v-model="selected" @click.native.stop></v-checkbox>
         
         </div>
       </div>
-       
-
-      <v-list-item class="flex-grow-0 flex-shrink-0 basis px-0">
-          <v-list-item-avatar color="grey darken-3">
-            <v-img
-              class="elevation-6"
-              alt=""
-              src="https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairShortCurly&accessoriesType=Prescription02&hairColor=Black&facialHairType=Blank&clotheType=Hoodie&clotheColor=White&eyeType=Default&eyebrowType=DefaultNatural&mouthType=Default&skinColor=Light"
-            ></v-img>
-          </v-list-item-avatar>
-  
-          <v-list-item-content>
-            <v-list-item-title class="username">Evan</v-list-item-title>
-          </v-list-item-content>
-  
         
-          <v-row
-            align="center"
-            justify="end"
-          >
-            <v-icon class="icon-size">
-              mdi-heart
-            </v-icon>
-            <span class="caption">256</span>
-            
-            <v-icon class="icon-size ml-1">
-              mdi-share-variant
-            </v-icon>
-            <span class="caption">45</span>
+      <!-- <div> -->
+         <v-container>
+          <v-row class="d-flex justify-end">
+            <v-icon class="material-icons" :class="[smallFontSize ? 'icon-small' : 'icon-large']">share</v-icon>
           </v-row>
-          
-    </v-list-item>
-        
+        </v-container>
+      <!-- </div> -->
     </v-card-text>
   </v-card>
  
@@ -131,14 +102,5 @@
   left: 7px;
   top: 5px;
   z-index: -1;
-}
-.username {
-  font-size:12px;
-}
-.icon-size {
-  font-size:16px;
-}
-.basis {
-  flex-basis: auto;
 }
 </style>

@@ -1,65 +1,56 @@
 <template>
  <v-container>
-     <v-row class="mt-8">
+    <v-row class="d-flex align-center">
 
-       <v-btn class="mx-1" depressed dark color="#344955" @click="clickListen">Read</v-btn>
-       <v-btn class="mx-1" depressed dark color="#344955">Test</v-btn>
-       <v-spacer/>
-       
-       <v-btn icon>
-         <v-icon>share</v-icon>
-       </v-btn>
-     </v-row>
+        <v-btn class="mr-4" icon @click="clickBack">
+           <v-icon class="material-icons">keyboard_arrow_left</v-icon>
+        </v-btn>
+        
+        <div>Deck Name</div>
+    </v-row>
             <v-card
 
               class="mx-auto d-flex flex-column flex-grow-1 ma-8"
-              max-width="680"
-              height="400"
+              max-width="340"
+              height="500"
               outlined
             >
-              <div class="d-flex justify-start playcard-background textcolor" >
-                  <div class="text-subtitle-1 mx-4 mt-2">
-                    Art Business
+              <row class="d-flex justify-center playcard-background textcolor" >
+                  <div class="text-h5 align-center ma-8">
+                    Art
                   </div>
-              </div>
-              <div class="d-flex justify-center playcard-background textcolor" >
-                  <div class="text-h5 mb-4">
-                    Art 
-                  </div>
-              </div>
+              </row>
                   <v-divider></v-divider>
-
-              
-                  <div class="backcard-content d-flex justify-start flex-grow-1 px-6 pt-8 scrollbox">
-                      I took a course on art in the 20th century
-                      the artsThe arts are vitally important to our city.
-
-
-                  </div>
-               <div>
-                  <v-progress-linear 
-                  value="10" background-color="#C3C7C9"
-                  color="#009688">
-                  </v-progress-linear>       
-               </div>
+                
+              <div class="backcard-content d-flex justify-start align-center flex-grow-1 px-6 pt-8 mt-6 scrollbox">
+                  I took a course on art in the 20th century
+                  the artsThe arts are vitally important to our city.
+                  
+                  
+              </div>
             </v-card>
                  
             
-   
-    <v-row class="d-flex justify-center mb-8">
-      <v-btn icon class="mx-8">
+    <v-row>
+      <v-progress-linear 
+      value="10" background-color="#C3C7C9"
+      color="#009688" class="mx-4">
+      </v-progress-linear>       
+    </v-row>
+    <v-row class="d-flex justify-space-around mt-8">
+      <v-btn icon>
         <v-icon class="material-icons">replay</v-icon>
       </v-btn>
-      <v-btn icon class="mx-8">
+      <v-btn icon>
         <v-icon class="material-icons" x-large>skip_previous</v-icon>
       </v-btn>
-      <v-btn icon class="mx-8">
+      <v-btn icon>
         <v-icon class="material-icons" x-large>play_arrow</v-icon>
       </v-btn>
-      <v-btn icon class="mx-8">
+      <v-btn icon>
         <v-icon class="material-icons" x-large>skip_previous</v-icon>
       </v-btn>
-      <v-btn icon class="mx-8">
+      <v-btn icon>
         <v-icon class="material-icons">cloud_download</v-icon>
       </v-btn>
 

@@ -2,17 +2,47 @@
   <v-container class="container-width">
     <v-row class="text-center d-flex justify-between mt-6" v-if="!newCard">
         <v-col cols="6" class="d-flex justify-start">
-          <v-tabs>
-             <v-tab>Discovery</v-tab>
-             <v-tab>My shared list</v-tab>
-      
-          </v-tabs>
-        
+          <v-menu offset-y>
+              <template v-slot:activator="{ on,}">
+                <v-btn
+                  outlined
+                  v-on="on"
+                >
+                  Select
+                  <v-icon>
+                  keyboard_arrow_down
+                  </v-icon>
+                </v-btn>
+              </template>
+             <v-list>
+               <v-list-item
+                 v-for="(item, index) in items"
+                 :key="index"
+                 @click="selectView=!selectView"
+               >
+                 <v-list-item-title>{{ item.title }}</v-list-item-title>
+               </v-list-item>
+             </v-list>
+        </v-menu>
+        <div v-if="selectView || selected.length > 0" class="d-flex justify-space-around ml-2">
+           <v-btn class="mx-1" depressed dark color="#344955" v-on="on">Read</v-btn>
+           <v-btn class="mx-1" depressed dark color="#344955">Listen</v-btn>
+           <v-btn class="mx-1" depressed dark color="#344955">Test</v-btn>
+           <v-btn class="mx-1" depressed light>Delete</v-btn>
+            
+        </div>
       </v-col>
       
     
       <v-col cols="6" class="d-flex justify-end">
-       
+        <v-btn class="mx-4"
+          color="#F4AA33"
+          dark
+          @click="newCard=true"
+        >
+          <v-icon>add</v-icon>
+        
+        </v-btn>
         <v-btn icon class="ml-4" @click="listView=false">
           <v-icon>view_module</v-icon>
         </v-btn>

@@ -1,6 +1,6 @@
 <template>
   <v-card>
-    <v-row class="d-flex justify-end">
+    <v-row class="d-flex justify-end" v-if="clearIcon">
         <v-btn class="mr-6 mt-5" icon @click="$emit('close-dialog')">
            <v-icon class="material-icons">clear</v-icon>
         </v-btn>
@@ -8,10 +8,11 @@
           <v-card-text>
             <v-container>
               <v-row>
-                <v-col
+                <v-col class="mr-2"
                   cols="12"
                   sm="6"
-                  md="4"
+                  
+                  
                 >
                   <v-combobox
                     v-model="deckName"
@@ -22,12 +23,14 @@
                     dense
                   ></v-combobox>
                 </v-col>
-
+              
                 <v-col
                   cols="12"
                   sm="6"
-                  md="4"
+                  
                 >
+              
+
                   <v-text-field
                     label="New Word*"
                     placeholder=""
@@ -37,10 +40,12 @@
                     required
                   ></v-text-field>
                 </v-col>
+              
+
                 <v-col
                   cols="12"
-                  sm="6"
-                  md="4"
+                  sm="12"
+                  
                 >
                   <v-textarea
                     label="Explanation"
@@ -68,12 +73,18 @@
               <v-row class="d-flex justify-center">
               <!-- <v-card-actions> -->
                 <!-- <v-spacer></v-spacer> -->
-                  <v-btn class="mb-8"
+                  <v-btn class="mb-8 mx-8"
                     color="#F4AA33"
                     dark
                     @click="createCard"
                   >
                     Create
+                  </v-btn>
+                  <v-btn class="mb-8 mx-8"
+                    text
+                    @click="$emit('close-dialog')"
+                  >
+                    Cancle
                   </v-btn>
 
 
@@ -89,6 +100,10 @@
   export default {
     name: 'Card',
     props: {
+      clearIcon: {
+        type: Boolean,
+        default: false
+      }
     },
     data: () => ({
       dialog: false,
